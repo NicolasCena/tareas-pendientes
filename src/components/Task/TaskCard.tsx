@@ -1,18 +1,20 @@
-import { createContext } from 'react'
-import { Tasks } from '../../mock/TasksMock'; // Momentaneo hasta realizar la API
+import { createContext } from "react";
+import useTasks from "../../hooks/useTasks";
+import { Error } from "../Error";
 
 const Task = ({ children }: { children: JSX.Element }) => {
-
-  const TaskContext = createContext({})
+  const { loading, tasks, error } = useTasks();
+  const TaskContext = createContext({});
   const { Provider } = TaskContext;
 
-  return (
-    <Provider value={Tasks}>
-      <div className='task'>
-        { children }
-      </div>
-    </Provider>
-  )
-}
+  if (loading) return <div>Loading...</div>;
+  if (typeof error !== null) return <Error />;
 
-export default Task
+  return (
+    <Provider value={tasks}>
+      <div className="task">{children}</div>
+    </Provider>
+  );
+};
+
+export default Task;

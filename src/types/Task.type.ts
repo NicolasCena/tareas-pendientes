@@ -1,13 +1,13 @@
-export const TaskAppointment = {
+export type TaskAppointment = {
 
-}
+};
 
-export const TaskForm = {
+export type TaskForm = {
     
-}
+};
 
-export const TaskConsent = {
+export type TaskConsent = {
     
-}
+};
 
-export const Task = Array(TaskConsent || TaskForm || TaskAppointment)
+export type Task = (TaskConsent | TaskForm | TaskAppointment);
