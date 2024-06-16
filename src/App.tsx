@@ -3,7 +3,7 @@ function App() {
 
   return (
     <div className="tasks">
-      <p>hola</p>
+      <i className="icon-burger-destructure"/>
     </div>
   )
 }
