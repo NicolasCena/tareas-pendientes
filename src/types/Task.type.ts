@@ -1,13 +1,127 @@
-export type TaskAppointment = {
+import { AxiosError } from "axios";
 
+export type TaskAppointment = {
+    peticionCita: boolean;
+    idCita: string;
+    idPaciente: number;
+    diasParaCita: string;
+    idCentro: string;
+    nombreCentro: string;
+    idProvincia: string;
+    telefonoCentro: string;
+    idEspecialidad: string;
+    nombreEspecialidad: string;
+    idEspecialidadMDM: string;
+    idAgrupacion: string;
+    nombreAgrupacion: string;
+    idEstado: string;
+    idProfesional: string;
+    nombreProfesional: string;
+    idPrestacion: string;
+    idPrestacionMDM: string;
+    nombrePrestacion: string;
+    nombreCita: string;
+    preparacionPrevia: string;
+    autorizacion: string;
+    fechaMinima: string;
+    horaFechaMinima: string;
+    fechaMaxima: string;
+    horaFechaMaxima: string;
+    fechaPrevista: string;
+    embarazada: string;
+    informe: string;
+    idPeticion: string;
+    fecha: string;
+    fechaString: string;
+    idSociedad: string;
+    nombreSociedad: string;
+    codInspeccion: string;
+    hora: string;
+    tipoPaciente: string;
+    modificable: boolean;
+    anulable: boolean;
+    idCentroEsp: string;
+    codCentroAsociado: string;
+    centroEsp: string;
+    descripcionSala: string;
+    direccionSala: string;
+    idSala: string;
+    comoLlegar: string;
+    citaPublica: boolean;
+    citaPrivada: boolean;
+    noPresencial: boolean;
+    mensajeNoPresencial: string;
+    ecommerce: boolean;
+    permisoAnular: boolean;
+    permisoModificar: boolean;
+    permisoPedir: boolean;
+    permisoArchivar: boolean;
+    videoconsultable: boolean;
+    grupal: boolean;
+    minAntelacion: number;
+    showContactPhone: boolean;
+    codCitacion: string;
+    reportsTypesEnabled: string[];
+    patientVerificationMethod: number;
+    confirmable: boolean;
+    idVolante: string;
+    tipoAvatar: string;
+    urlAvatar: string;
+    mensajePeticion: string;
+    codTextoPreparacion: string;
+    codVideoPreparacion: string;
+    citable: boolean;
+    resolucionExterna: boolean;
+    archivada: boolean;
+    nombreProvincia: string;
 };
 
 export type TaskForm = {
-    
+    formulario: boolean;
+    codCentro: string;
+    nombreCentro: string;
+    codPlantillaFormulario: string;
+    descPlantillaFormulario: string;
+    fechaDesde: string;
+    idEpisodio: string;
+    idFormularioActivo: string;
+    idProceso: string;
+    numHistoriaClinica: string;
+    periocidadDias: number;
+    guid: string;
+    rellenable: boolean;
+    permisoArchivar: boolean;
+    permisoCumplimentar: boolean;
+    queryString: string;
+    decisionesCompartidas: boolean;
+    validic: boolean;
+    formUrgencies: boolean;
+    archivada: boolean;
 };
 
 export type TaskConsent = {
-    
+    consentimiento: boolean;
+    descripcionPrestacion: string;
+    fecha: string;
+    pendienteFirmaPaciente: boolean;
+    firmado: boolean;
+    idCentro: string;
+    nombreCentro: string;
+    seccionPeticionaria: string;
+    idDoc: string;
+    mostrarBotonFirma: boolean;
+    mostrarBotonDenegar: boolean;
+    mostrarBotonRevocar: boolean;
+    versionCasiopea: string;
+    fechaDocumentoFirma: string;
+    permisoArchivar: boolean;
+    permisoFirmar: boolean;
+    permisoDenegar: boolean;
+    archivada: boolean;
 };
 
 export type Task = (TaskConsent | TaskForm | TaskAppointment);
+
+export type TaskContextProps = {
+    task: Task;
+};

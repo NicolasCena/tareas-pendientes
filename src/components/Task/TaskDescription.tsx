@@ -1,27 +1,21 @@
 import { FC } from "react";
 
-type Item = {
+type TaskDescriptionProps = {
   pClassName?: string;
   text: string;
   divClassName?: string;
 };
 
-type TaskDescriptionProps = {
-  items: Item[] | Item;
-};
-
-const TaskDescription: FC<TaskDescriptionProps> = ({ items }) => {
-  const renderItem = (item: Item, index: number) => (
-    <div key={index} className={item.divClassName}>
-      <p className={item.pClassName}>{item.text}</p>
-    </div>
-  );
-
+const TaskDescription: FC<TaskDescriptionProps> = ({
+  pClassName,
+  text,
+  divClassName,
+}) => {
   return (
     <>
-      {Array.isArray(items)
-        ? items.map((item, index) => renderItem(item, index))
-        : renderItem(items, 0)}
+      <div className={divClassName}>
+        <p className={pClassName}>{text}</p>
+      </div>
     </>
   );
 };
