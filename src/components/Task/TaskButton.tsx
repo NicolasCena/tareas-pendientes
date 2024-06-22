@@ -1,11 +1,28 @@
-import React from 'react'
+import { FC } from "react";
 
-const TaskButton = () => {
+type TaskButtonProps = {
+  onClick: () => void;
+  buttonText: string;
+  divClassName?: string;
+  buttonClassName?: string;
+  icon?: string;
+};
+
+const TaskButton: FC<TaskButtonProps> = ({
+  onClick,
+  buttonText,
+  divClassName,
+  buttonClassName,
+  icon,
+}) => {
   return (
-    <div>
-      
+    <div className={divClassName}>
+      <button type="button" onClick={onClick} className={buttonClassName}>
+        {icon && <i className={icon} />}
+        {buttonText}
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default TaskButton
+export default TaskButton;
